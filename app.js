@@ -6,7 +6,9 @@ let userCommand = process.argv[2]
 
 if (userCommand === 'read') {
   for (var key in dataJSON.notes) {
-    console.log(key);
+    console.log(`${key}: ${dataJSON.notes[key]}`);
   }
-  // for (var i = 0; i < dataJSON.notes.length)
+} else if (userCommand === 'create') {
+  const newNote = process.argv[3];
+  console.log(newNote);
 }
