@@ -28,7 +28,9 @@ if (userCommand === 'read') {
 } else if (userCommand === 'update') {
   const updateID = process.argv[3];
   const updateContent = process.argv[4];
-
+//dataJSON.notes[updateId] = newNote;
+// console.log(dataJSON.notes[updateId])
+  console.log(typeof updateID)
 }
 
 //
