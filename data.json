@@ -1,10 +1,15 @@
 {
-  "nextId": 8,
+  "nextId": 16,
   "notes": {
-    "1": "The event loop is how a JavaScript runtime pushes asynchronous callbacks onto the stack once the stack is cleared.",
+    "1": "new version of one",
     "3": "In JavaScript, the value of `this` is determined when a function is called; not when it is defined.",
     "4": "A closure is formed when a function retains access to variables in its lexical scope.",
-    "5": "Hello Node2",
-    "7": "Hello Node4"
+    "5": "one two three",
+    "8": "testing",
+    "9": "testing",
+    "10": "testing",
+    "12": "twelve",
+    "13": "testing",
+    "15": "testing"
   }
 }
