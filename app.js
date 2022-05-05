@@ -24,8 +24,17 @@ if (userCommand === 'read') {
 } else if (userCommand === 'update') {
   const updateID = process.argv[3];
   const updateContent = process.argv[4];
-  dataJSON.notes[updateID] = updateContent;
-  writeToData(dataJSON);
+  let keyArray = Object.keys(dataJSON.notes);
+
+
+  if (keyArray.includes(updateID) === false) {
+    console.log('This ID entry does not exist!');
+  } else if (!!updateContent === false) {
+    console.log('You forgot to specify the new text!');
+  } else if (keyArray.includes(updateID) === true) {
+    dataJSON.notes[updateID] = updateContent;
+    writeToData(dataJSON);
+  }
 }
 
 function writeToData(dataJSON) {
