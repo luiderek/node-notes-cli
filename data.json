@@ -1,13 +1,13 @@
 {
-  "nextId": 16,
+  "nextId": 17,
   "notes": {
     "1": "new version of one",
     "3": "In JavaScript, the value of `this` is determined when a function is called; not when it is defined.",
     "4": "A closure is formed when a function retains access to variables in its lexical scope.",
-    "5": "one two three",
+    "5": "number 5",
     "6": "this should not work",
     "8": "testing",
     "10": "testing",
-    "12": "twelve"
+    "16": "234234234234"
   }
 }

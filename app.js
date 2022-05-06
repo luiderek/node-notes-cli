@@ -1,12 +1,10 @@
 const fs = require('fs');
-
 let dataJSON = require('./data.json');
-
 let userCommand = process.argv[2]
 
 if (userCommand === 'read') {
   for (var key in dataJSON.notes) {
-    console.log(`${key}: ${dataJSON.notes[key]}`);
+    console.error(`${key}: ${dataJSON.notes[key]}`);
   }
 } else if (userCommand === 'create') {
   const newNote = process.argv[3];
@@ -14,13 +12,23 @@ if (userCommand === 'read') {
     dataJSON.notes[dataJSON.nextId] = newNote;
     dataJSON.nextId++;
   } else {
-    console.error('New notes need content.')
+    console.error('New notes need content.');
   }
   writeToData(dataJSON);
 } else if (userCommand === 'delete') {
   const deleteID = process.argv[3];
-  delete dataJSON.notes[deleteID];
-  writeToData(dataJSON);
+  if (deleteID){
+    if (dataJSON.notes[deleteID]){
+      delete dataJSON.notes[deleteID];
+      writeToData(dataJSON);
+    }
+    else {
+      console.error('Target ID not found');
+    }
+  }
+  else {
+    console.error('Missing arguments: Need target id.');
+  }
 } else if (userCommand === 'update') {
   const updateID = process.argv[3];
   const updateContent = process.argv[4];
@@ -28,9 +36,9 @@ if (userCommand === 'read') {
 
 
   if (keyArray.includes(updateID) === false) {
-    console.log('This ID entry does not exist!');
+    console.error('This ID entry does not exist!');
   } else if (!!updateContent === false) {
-    console.log('You forgot to specify the new text!');
+    console.error('You forgot to specify the new text!');
   } else if (keyArray.includes(updateID) === true) {
     dataJSON.notes[updateID] = updateContent;
     writeToData(dataJSON);
